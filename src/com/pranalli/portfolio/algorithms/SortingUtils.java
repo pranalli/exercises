@@ -75,7 +75,7 @@ public class SortingUtils {
     }
 
     public static void main(String[] args) {
-        int[] testArr = new int[] {1, 0, 12, 32, 3, -54, 10000 };
+        int[] testArr = new int[]{1, 0, 12, 32, 3, -54, 10000};
         int[] insertionSorted = insertionSort(Arrays.copyOf(testArr, testArr.length));
         int[] bubbleSorted = bubbleSort(Arrays.copyOf(testArr, testArr.length));
 
