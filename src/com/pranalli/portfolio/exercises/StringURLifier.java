@@ -12,16 +12,16 @@ public class StringURLifier {
     private static final char MARK = ' ';
 
     public static String urlify(char[] arr, int trueLength) {
-        for (int i = 0; i < trueLength; i++) {
-            if (arr[i] == MARK) {
+        for (int currIndex = 0; currIndex < trueLength; currIndex++) {
+            if (arr[currIndex] == MARK) {
                 trueLength += 2;  // Expands by 2 because the first char replaces the space (' ' becomes '%20')
-                for (int j = (trueLength - 1); j > i; j--) {
-                    arr[j] = arr[j - 2];
+                for (int rightIndex = (trueLength - 1); rightIndex > currIndex; rightIndex--) {
+                    arr[rightIndex] = arr[rightIndex - 2];
                 }
 
-                arr[i] = '%';
-                arr[++i] = '2';
-                arr[++i] = '0';
+                arr[currIndex] = '%';
+                arr[++currIndex] = '2';
+                arr[++currIndex] = '0';
             }
         }
 
