@@ -40,8 +40,8 @@ class StringPermutationIdentifier {
 		}
 
 		return Arrays.equals(
-				SortingUtils.insertionSort(s1.toCharArray()),
-				SortingUtils.insertionSort(s2.toCharArray())
+			SortingUtils.insertionSort(s1.toCharArray()),
+			SortingUtils.insertionSort(s2.toCharArray())
 		);
 	}
 
