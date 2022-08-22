@@ -14,7 +14,7 @@ public class StringURLifier {
     public static String urlify(char[] arr, int trueLength) {
         for (int i = 0; i < trueLength; i++) {
             if (arr[i] == MARK) {
-                trueLength += 2;
+                trueLength += 2;  // Expands by 2 because the first char replaces the space (' ' becomes '%20')
                 for (int j = (trueLength - 1); j > i; j--) {
                     arr[j] = arr[j - 2];
                 }
