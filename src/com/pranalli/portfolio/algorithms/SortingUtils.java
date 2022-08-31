@@ -51,6 +51,45 @@ public class SortingUtils {
         return arr;
     }
 
+    public static int[] quickSort(int[] arr) {
+        return quickSort(arr, 0, arr.length - 1);
+    }
+
+    private static int[] quickSort(int[] arr, int start, int end) {
+        if (start < end) {
+            int pivot = partition(arr, start, end);
+
+            quickSort(arr, start, pivot - 1);
+            quickSort(arr, pivot + 1, end);
+        }
+
+        return arr;
+    }
+
+    private static int partition(int[] arr, int start, int end) {
+        int pivot = end;
+        int left = start;
+        while (left < pivot) {
+            if (arr[left] > arr[pivot]) {
+                swapIndexes(arr, left, pivot);
+                swapIndexes(arr, left, --pivot);
+            }
+            else {
+                left++;
+            }
+        }
+
+        return pivot;
+    }
+
+    private static void swapIndexes(int[] arr, int i1, int i2) {
+        if (i1 != i2) {
+            arr[i1] = arr[i1] + arr[i2];
+            arr[i2] = arr[i1] - arr[i2];
+            arr[i1] = arr[i1] - arr[i2];
+        }
+    }
+
     /**
      * Sorts the given int[] by utilizing an implementation of the common "bubble sort" algorithm.
      *
@@ -75,12 +114,14 @@ public class SortingUtils {
     }
 
     public static void main(String[] args) {
-        int[] testArr = new int[]{1, 0, 12, 32, 3, -54, 10000};
-        int[] insertionSorted = insertionSort(Arrays.copyOf(testArr, testArr.length));
-        int[] bubbleSorted = bubbleSort(Arrays.copyOf(testArr, testArr.length));
+        int[] testArr = new int[]{ 1, 0, 12, 32, 3, -54, 10000, 600, 22, 5, -100000, -67, 67, 25, -1, -1, -1 };
+//        int[] insertionSorted = insertionSort(Arrays.copyOf(testArr, testArr.length));
+//        int[] bubbleSorted = bubbleSort(Arrays.copyOf(testArr, testArr.length));
+        int[] quickSorted = quickSort(Arrays.copyOf(testArr, testArr.length));
 
         System.out.println(Arrays.toString(testArr));
-        System.out.println(Arrays.toString(insertionSorted));
-        System.out.println(Arrays.toString(bubbleSorted));
+//        System.out.println(Arrays.toString(insertionSorted));
+//        System.out.println(Arrays.toString(bubbleSorted));
+        System.out.println(Arrays.toString(quickSorted));
     }
 }
