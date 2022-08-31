@@ -1,23 +1,9 @@
 package com.pranalli.portfolio.exercises;
 
+import com.pranalli.portfolio.structures.Pair;
+
 public class NumberSwapper {
-    public static class Pair<T, R> {
-        T left;
-        R right;
 
-        Pair(T t, R r) {
-            this.left = t;
-            this.right = r;
-        }
-
-        @Override
-        public String toString() {
-            return "Pair{" +
-                    "left=" + left +
-                    ", right=" + right +
-                    '}';
-        }
-    }
     public static Pair<Integer, Integer> swap(int x, int y) {
         x = x + y;
         y = x - y;
